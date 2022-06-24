@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
     .select('*')
     .where('id', '>', 5)
     .then(movies => {
+      // console.log(`sending data: `, movies)
       res.status(200).send(movies);
     })
 })

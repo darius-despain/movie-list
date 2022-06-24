@@ -12,7 +12,7 @@ const MovieList = () => {
   //gets initial list of movies from the API and filters them or stores all of them
   const [movies, setMovies] = useState([])
   useEffect ( () => {
-    fetch ('http://localhost:8080/')
+    fetch ('https://movie-list-ddespain.herokuapp.com/')
     .then (res => res.json())
     .then (data => {
       if(query) {
@@ -39,7 +39,7 @@ const MovieList = () => {
   useEffect( () => {
     if(movieToDelete.id > 0) {
       console.log(`delete running on id: ${movieToDelete.id}`)
-      fetch (`http://localhost:8080/${movieToDelete.id}`, {
+      fetch (`https://movie-list-ddespain.herokuapp.com/${movieToDelete.id}`, {
         method: "DELETE",
       })
       .then(res => {
@@ -67,7 +67,7 @@ const MovieList = () => {
       }
       console.log(`watch toggle running on id: ${movieToToggleWatch.id}`)
       console.log(`toggling watched from ${currentWatchState} to ${!currentWatchState} for ${movieToToggleWatch.title}`)
-      fetch (`http://localhost:8080/${movieToToggleWatch.id}`, {
+      fetch (`https://movie-list-ddespain.herokuapp.com/${movieToToggleWatch.id}`, {
         method: "PATCH",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)

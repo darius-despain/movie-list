@@ -16,7 +16,7 @@ const AddMovies = () => {
       let body = {
         title: newTitle
       }
-      let res = await fetch ('http://localhost:8080/', {
+      let res = await fetch ('https://movie-list-ddespain.herokuapp.com/', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
